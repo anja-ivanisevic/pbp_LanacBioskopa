@@ -40,10 +40,11 @@ create table Kinooperater (
 );
 
 create table BioskopskaSala (
-	idBioskopskeSale int not null primary key,
+	idBioskopskeSale int not null,
 	kapacitet int not null,
 	omogucen3d bool not null default false,
-	idBioskopa int not null references Bioskop(idBioskopa) on delete cascade on update cascade
+	idBioskopa int not null references Bioskop(idBioskopa) on delete cascade on update cascade,
+	primary key (idBioskopa, idBioskopskeSale)
 );
 
 create table Film (
@@ -66,10 +67,12 @@ create table Projekcija (
 	brojProdatihUlaznica int not null default 0,
 	jeste3d bool not null default false,
 	status varchar(45) not null,
-	idBioskopa int not null references PrikazujeSe(idBioskopa) on delete cascade on update cascade,
+	idBioskopa int not null,
 	idFilma int not null references PrikazujeSe(idFilma) on delete cascade on update cascade,	
 	idKinooperatera int not null references Kinooperater(idZaposlenog) on delete cascade on update cascade,	
-	idBioskopskeSale int not null references BioskopskaSala(idBioskopskeSale) on delete cascade on update cascade
+	idBioskopskeSale int not null references BioskopskaSala(idBioskopskeSale) on delete cascade on update cascade,
+	foreign key (idBioskopa) references PrikazujeSe(idBioskopa) on delete cascade on update cascade,
+	foreign key (idBioskopa) references BioskopskaSala(idBioskopa) on delete cascade on update cascade
 );
 
 create table CenaUlaznice (

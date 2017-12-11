@@ -72,8 +72,8 @@ insert into Projekcija values
 	(1, '20:00', '2017-12-14', 10, false, 'u pripremi', 1, 1, 7, 1),
 	(2, '19:00', '2017-12-09', 97, true, 'odrzana', 2, 2, 8, 2),
 	(3, '18:00', '2017-09-09', 13, false, 'otkazana', 2, 3, 8, 2),
-	(4, '21:00', '2017-12-20', 45, true, 'u pripremi', 3, 1, 10, 3),
-	(5, '21:00', '2017-10-10', 98, true, 'odrzana', 3, 5, 10, 3);
+	(4, '21:00', '2017-12-20', 45, false, 'u pripremi', 3, 1, 10, 3),
+	(5, '21:00', '2017-10-10', 98, false, 'odrzana', 3, 5, 10, 3);
 
 insert into CenaUlaznice values
 	('standard', 250, 1),
